@@ -1,0 +1,28 @@
+<h3>Ganti Status Film</h3>
+<div class="row">
+    <form action="/film/{{film._id}}" method="POST" class="col s12">
+        <input type="hidden" name="_method" value="PUT">
+        <div class="row">
+            <div class="input-field">
+                <input type="text" id="judul" name="judul" value="{{film.judul}}"> 
+                <label for="judul">Judul</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field">
+                <select id="status" name="status">
+                    {{#select film.status}}
+                    <option value="Belum Ditonton" selected>Belum Ditonton</option>
+                    <option value="Sedang Ditonton">Sedang Ditonton</option>
+                    <option value="Sudah Ditonton">Sudah Ditonton</option>
+                    {{/select}}
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+        <div class="row">
+            <input type="submit" value="Save" class="btn">
+            <a href="/dashboard" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>

@@ -9,11 +9,6 @@ const connectDB = async () => {
             useUnifiedTopology: true
         })
         console.log('MongoDB Connected: ' +conn.connection.host )
-        var connection = mongoose.createConnection(process.env.MONGO_URI, {
-            useCreateIndex: true,
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        })
         autoIncrement.initialize(mongoose.connection)
         
     }

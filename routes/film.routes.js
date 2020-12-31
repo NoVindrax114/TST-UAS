@@ -9,7 +9,7 @@ router.get('/add', ensureAuth, (req,res)=> {
 router.post('/', ensureAuth, async (req,res) => {
     try {
         req.body.user = req.user.id
-        await Film .create(req.body)
+        await Film.create(req.body)
         res.redirect('/dashboard')
     }
     catch (err) {
@@ -18,6 +18,20 @@ router.post('/', ensureAuth, async (req,res) => {
     }
     
 })
+
+//buat ngeliat database user lain tapi gabisa
+/*router.get('/', ensureAuth, async (req,res)=> {
+    try {
+        const film = await Film.find({})
+            .populate('user')
+            .lean()
+        res.render('film/index', { film, })
+    }
+    catch (error) {
+        console.error(err)
+        res.render('error/500')
+    }
+})*/
 
 router.get('/edit/:id', ensureAuth, async (req,res)=> {
     try {

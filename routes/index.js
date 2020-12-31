@@ -12,7 +12,7 @@ router.get('/', ensureGuest, (req,res) => {
 
 router.get('/dashboard', ensureAuth, async (req,res) => {
     try {
-        const films = await film.find({}).lean()
+        const films = await film.find({ user: req.user.id }).lean()
         res.render('dashboard', {
             name: req.user.firstName,
             films

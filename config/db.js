@@ -15,7 +15,7 @@ const connectDB = async () => {
             useUnifiedTopology: true
         })
         autoIncrement.initialize(mongoose.connection)
-
+        
     }
     catch (err) {
         console.error(err)
